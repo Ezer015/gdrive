@@ -131,7 +131,6 @@ fn create_client() -> Client<ProxyConnector<HttpsConnector<HttpConnector>>> {
             if username != "" {
                 proxy.set_authorization(Authorization::basic(&username, &password));            
             }
-            println!("using system proxy {}", uri_str);
             ProxyConnector::from_proxy(connector, proxy).unwrap()
         },
         None => {
